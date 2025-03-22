@@ -1,3 +1,10 @@
+---
+layout: page
+title: C
+---
+
+# {{page.title}}
+
 > This is the start of my journey to learning C
 
 # Hello World!

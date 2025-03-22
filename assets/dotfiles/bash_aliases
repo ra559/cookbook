@@ -87,3 +87,5 @@ alias installStarshipShell="curl -sS https://starship.rs/install.sh | sh"
 alias options2='opts() { man "$1" | grep -E --color "^[[:space:]]*[[:punct:]]"; }; opts'
 alias disable_num_dash_lauch_gnome="gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false"
 alias randword="shuf -n 1 /usr/share/dict/american-english | tr -d \"'\""
+# Dot Files: 
+#  https://ra559.github.io/cookbook/assets/dotfiles
