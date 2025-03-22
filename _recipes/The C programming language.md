@@ -256,3 +256,61 @@ int main() {
 ```
 
 ## Constants
+No different from any other language
+
+### Example:
+```c
+#include <stdio.h>
+int main(){
+	const int count = 4;
+	printf("Please count to %d\n",count);
+	printf("Do not count to %d\n",count+1);
+	printf("Do not stop at %d\n",count-1);
+	return(0);
+}
+```
+
+> **Note:**
+> These two statements are not the same: `const char b = "z";` and `const char b = 'z';` 
+> `"h"` is a **string literal**, which in C means an array of characters that ends with a null terminator `'\0'`.So, `"h"` is actually equivalent to a `const char[2]` array, containing:
+    - The character `'h'`
+    - The null terminator `'\0'`
+-`'h'` is a **character literal** and represents a single character with a numeric ASCII value (in this case, the ASCII value of `'h'` is 104).
+
+## Variable scope
+* **Storage class:** sets a variable scope (variables availability to other functions)
+* **Auto:** private variable local to a function. The values are released from memory after the function quits. ***This is the default class***
+* **Static:** Also local to their functions but the value is retained when the function quits 
+* **Extern**: variables that exist outside of any function. These are available to all functions. Like a global variable.
+> **Note:**
+* `extern` is used to declare a **global variable or function that is defined in another file** or in a different part of the program. It tells the compiler, "This variable exists somewhere else, so don't allocate memory for it here; just reference it."
+* ***Example Use Case for `extern`:** 
+	* If you're working with multiple files in your C program and you want to access the same global variable across them, you'd use `extern` to avoid redefining it.
+### Example:
+```c
+#include <stdio.h>
+// Global variable
+int global_var = 10;
+void demonstrateScopes() {
+    int local_var = 5;   
+    static int static_var = 0;       
+    printf("Enter a new value for the global variable: ");
+    scanf("%d", &global_var);    
+    local_var++;            
+    static_var++;       
+    printf("Local variable: %d\n", local_var);
+    printf("Static variable: %d\n", static_var);
+    printf("Global variable (modified by user): %d\n", global_var);
+}
+int main() {
+    printf("Initial global variable: %d\n", global_var);
+    printf("\nCalling demonstrateScopes() the first time:\n");
+    demonstrateScopes();
+    printf("\nCalling demonstrateScopes() the second time:\n");
+    demonstrateScopes(); 
+    printf("\nFinal global variable in main: %d\n", global_var);
+    return 0;
+}
+```
+
+
