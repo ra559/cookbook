@@ -313,4 +313,98 @@ int main() {
 }
 ```
 
+## Making new data types
+
+* `typedef` (defined data types) 
+	* Typically defined in a header file. Ex `include <time.h>` for `time_t` 
+```c
+#include <stdio.h>
+#include <time.h> 
+
+int main()
+{
+	time_t now; // time_t is a clock tick value. (number of seconds since 01/01/70 - EPOCH)
+	time(&now); // time func. gets system current epoch and saves it in now var
+	printf("%s",ctime(&now)); // ctime translate epoch to human readable timestamp
+	return(0);
+}
+```
+
+* the `typedef` keyword defines new data types
+	* `typedef data_type new_definition`
+		* EX: Define `time_t` as a long unsigned int:
+			* `typedef long unsigned time_t`
+* **Why create typedefs?**
+	* Special data types may differ from system to system
+	* The typedef keeps the data type consistent to maintain and compatible across OSs
+	* Often used with structures to reduce structure declaration
+	* nonstandard data types are created using typedef
+	* The man page explains how the defined data type should be used
+* Typedefs can be declared externally or internally
+
+## Specifying Characters and strings
+-  To declare a single character literal use `'` . Ex: `'R'` `'\n'` `'1'`
+- Escape sequence literal count as a single character
+
+| **Escape Sequence** | **Description**         | **Example Output**         |
+| ------------------- | ----------------------- | -------------------------- |
+| `\\`                | Backslash               | Prints a `\` character     |
+| `\'`                | Single quote            | Prints a `'` character     |
+| `\"`                | Double quote            | Prints a `"` character     |
+| `\?`                | Question mark           | Prints a `?` character     |
+| `\a`                | Alert (bell)            | Triggers an alert/beep     |
+| `\b`                | Backspace               | Moves cursor back one step |
+| `\f`                | Form feed               | Moves to the next page     |
+| `\n`                | Newline                 | Moves to the next line     |
+| `\r`                | Carriage return         | Moves to the start of line |
+| `\t`                | Horizontal tab          | Inserts a tab space        |
+| `\v`                | Vertical tab            | Inserts a vertical tab     |
+| `\0`                | Null character          | Marks end of string (NUL)  |
+| `\ooo`              | Octal number (3 digits) | Represents octal value     |
+| `\xhh`              | Hexadecimal number      | Represents hex value       |
+### Example program that takes a single character input
+```c
+#include <stdio.h>
+
+int main()
+{
+	char gender;
+	printf("Type Single Character Gender Idenfifier\n\tM - Masculine\n\tF - Feminine \n\tO - Other\n");
+	scanf("%c",&gender);
+	printf("You have selected \"%c\" \n", gender);
+	return(0);
+}
+
+```
+
+### Example program that creates a single character array
+```c
+#include <stdio.h>
+
+int main()
+{
+	char greeting[4] = { 'H','I','\x21','\0' };
+	puts(greeting);
+	return(0);
+
+}
+```
+* `\0` the null character makes the array a string. Null characters terminate strings in c. Remember that c does not have a string data type and character arrays are used in its place.
+* Using `""` makes the text a string literal.
+* The null character is added automatically to string literals.
+* When manipulating strings keep the existence of the `\0` character in mind
+
+### Example program that creates a string literal
+```c
+#include <stdio.h>
+int main()
+{
+	char full_name[] = "J. A. Romero";
+	puts(full_name);
+}
+```
+* The compiler will set the buffer size when the brackets are empty
+* This is the only time we can use assignment operator when working with strings
+
+## Specifying integers and real numbers
 
