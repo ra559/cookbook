@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_recipes/The C programming language.md",
+                "file": "_recipes/Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The C programming language"
+              "title": "Linux"
             }
           }
         ]
@@ -169,5 +169,11 @@
     }
   },
   "active": "f7f0c2b3efcfabdf",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "assets/Pasted image 20250521121400.png",
+    "Pasted image 20250521121026.png",
+    "assets/linux/systemctl.status.png",
+    "assets/linux",
+    "_recipes/The C programming language.md"
+  ]
 }
