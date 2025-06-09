@@ -5,8 +5,10 @@ title: Linux
 
 # {{page.title}}
 
-```table-of-contents
-```
+
+
+
+
 
 ## Tips
 
@@ -16,39 +18,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 ```
 * **How to disable desktop icons (GNOME)?** 
 	* In the extensions manager, set the Desktop icons to False 
-* **How to push an existing git repository to GitHub?**
-	* Assuming your ssh key and user is already setup.
-	* 1. create the GitHub repository
-	* 2. Initialize your git local repository if you have not done so
-	* 3. Add github as a remote repository: `git remote add origin git@github.com:your-username/your-repo-name.git`
-	* 4. Push local commits to GitHub main branch: `git push -u origin main`
-* **How to setup README, .gitignore, and GitHub Actions**
-	* A readme file is just a markdown file in the root of your repository. It contains a description of your project.
-	* The purpose of the gitignore file is to prevent sensitive information from being commited to your github repository. Examples: logs, local files, compiled binaries etc..)
-	* Here is some examples of what you can add to your gitignore:
-```bash
-# Compiled source
-*.class
-*.o
-*.so
 
-# Logs
-*.log
 
-# OS junk
-.DS_Store
-Thumbs.db
-
-# Node/Ruby/Python package stuff
-node_modules/
-vendor/
-.env
-__pycache__/
-*.pyc
-```
-* GitHub Actions are part of your CD/CI pipeline. This automates testing and deployment when push and pull requests are made. These are project specific.
-
-## Notes on Systemd
+## Systemd
 ### Introduction
 * A service, or daemon, is a program that performs a
 particular duty
@@ -57,11 +29,12 @@ particular duty
 * it is now the most popular system service initialization and management mechanism.
 * Classically, service startups are handled by the init program. This program can be located in the /etc/, the /bin/, or the /sbin/ directory.
 * The `pstree -­p 1` command shows you a diagram depicting the parent process of every every service
+
 ### How to find out which init system my Linux Machine uses
 1. `which init`  Shows you the absolute path of the init program binary
 2. `sudo readlink -f absolute/path/of/init/binary`
 
-Additionally, you can use the ps command to look at which program has process id 1: ``ps -­ p 1`
+Additionally, you can use the ps command to look at which program has process id 1: `ps -­ p 1`
 
 Keep in mind that there are other init systems aside from SysV and Systemd. For example, the now discontinued `upstart`. The following Linux Distributions use Upstart:
 * Fedora v9–v14
@@ -77,35 +50,40 @@ With systemd services can be started:
 * When a particular hardware component is attached to the system
 * When certain other services are started, and so on. 
 * Some services can be started based on a timer.
+
 #### Systemd units
 A unit defines a service, a group of services, or an action. Each unit consists of a name, a type, and a configuration file. There are currently 12 different systemd unit types, as follows:
-* automount
-* device
-* mount
-* path
-* scope
-* service
-* slice
-* snapshot
-* socket
-* swap
-* target
-* timer
- The `systemctl` utility is the main gateway to managing systemd and system services.
+  * automount
+  * device
+  * mount
+  * path
+  * scope
+  * service
+  * slice
+  * snapshot
+  * socket
+  * swap
+  * target
+  * timer
+
+The `systemctl` utility is the main gateway to managing systemd and system services.
+
+<br>
  **Basic Formula**: `systemctl` + `option` +  `command`  + `service name`
-The command:  `systemctl list-units` provides a list of the various units currently loaded in your Linux system.
-Units are identified by their name and type using the format name.type.
-System services (daemons) have unit files with the `.service` extension. For example in the case of ssh, it would be: `sshd.service`
+<br>
+
+The command:  `systemctl list-units` provides a list of the various units currently loaded in your Linux system. Units are identified by their name and type using the format name.type. System services (daemons) have unit files with the `.service` extension. For example in the case of ssh, it would be: `sshd.service`
 
 > Many displays from the `systemctl` utility use the less pager by default. Thus, to exit the display, you must press the Q key. If you want to turn off the systemctl utility’s use of the less pager, tack the `––no-­pager` option on the command.
 
 Group of services are started via target unit files. For example, at system startup the default.target unit is responsible for all the services that are set to start on system starts. This default.target (at least in Ubuntu) is setup as a symbolic link to another target unit file. 
 Here is how you can find out which target unit file is linked to:
+
 1. `find / -name default.target 2>/dev/null`
 2. `readlink -f /usr/lib/systemd/system/default.target`
 3. `systemctl get-­default`
-The first command is used to find the absolute path of the default.target file
-The second command is used to see the unit file it links to
+
+The first command is used to find the absolute path of the default.target file. The second command is used to see the unit file it links to
 The systemctl command here is used to see the current default.target. Systemctl is a much more efficient way of doing the same thing command 1 and 2 did.
 
 > Always use the systemctl command as different distros may store the unit files in different directories.
@@ -119,6 +97,7 @@ The systemctl command here is used to see the current default.target. Systemctl 
 | network-online.target | Provides a target that runs after the system has established a connection to the network. This is useful for starting applications that require the network to be present. |
 | runlevelN-target      | Provides backward compatibility to SysV init systems, where n is set to 1–5 for the desired SysV runlevel equivalence.                                                     |
 
+
 * The master systemd configuration file is the `/etc/systemd/system.conf` file.
 
 ### Service Unit Files
@@ -130,6 +109,7 @@ The systemctl command here is used to see the current default.target. Systemctl 
 	* `/etc/systemd/system/`
 	* `/run/systemd/system/`
 	* `/usr/lib/systemd/system/`
+
 >**Be aware**
 >There are times when you may need to do changes to systemd's configuration. You ***should not modify*** any unit files in the `/lib/systemd/system/` or `/usr/lib/systemd/system/` directory. Instead copy the file to the /etc/systemd/system/ directory and modify it there. This modified file will take precedence over the original unit file left in the original directory. Also, it will protect the modified unit file from software updates.
 >
@@ -145,7 +125,9 @@ The systemctl command here is used to see the current default.target. Systemctl 
 	* `static`: Service starts if another unit depends on it. Can also be manually started.
 * However, there are 12 states in total
 * To see what directory or directories store a particular systemd unit file(s), use the systemctl utility. Ex: `systemctl cat cron.service`
+
 * Example output:
+
 ```bash
 # /lib/systemd/system/cron.service
 [Unit]
@@ -163,6 +145,7 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
+
 * The example outputs shows:
 	* The `cron.service` unit file’s base name and directory location.
 	* The file's configuration sections:
@@ -200,6 +183,7 @@ WantedBy=multi-user.target
 					* **Also**: Sets additional units that must be enabled or disabled for this service. Often the additional units are socket type units.
 					* **RequiredBy**: Designates other units that require this service.
 					* **WantedBy**: Designates which target unit manages this service.
+
 ### Target Unit Files
 * The primary purpose of target unit files is to group together various services to start at system boot time.
 * The default target unit file, default.target, is symbolically linked to the target unit file used at system boot
@@ -210,6 +194,7 @@ WantedBy=multi-user.target
 * The `systemctl` command is used to handle services.
 * Viewing the status of a service: `systemctl status ssh`
 ![[Pasted image 20250521121400.png]]
+
 #### Other systemctl commands:
 
 | Command           | Description                                                                                                                                                                                                                                                                                                                                                                  |

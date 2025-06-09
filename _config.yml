@@ -13,8 +13,13 @@ collections:
   recipes:
     permalink: "/:collection/:path/"
     output: true
+  howtos:
+    permalink: "/:collection/:path/"
+    output: true
 
 just_the_docs:
   collections:
     recipes:
       name: Recipes
+    howtos:
+      name: Howtos
