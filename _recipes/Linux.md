@@ -5,11 +5,6 @@ title: Linux
 
 # {{page.title}}
 
-
-
-
-
-
 ## Tips
 
 * **How to move the launcher?** 
