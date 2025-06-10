@@ -1,56 +1,41 @@
 {
   "main": {
-    "id": "c8ad06a26149e1d7",
+    "id": "fec5393e4af1ca64",
     "type": "split",
     "children": [
       {
-        "id": "94258636431b4cfb",
+        "id": "920d73e68b1f062b",
         "type": "tabs",
         "children": [
           {
-            "id": "a939aca6a72b7a5d",
+            "id": "f7f0c2b3efcfabdf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "The C programming language.md",
+                "file": "_recipes/Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The C programming language"
-            }
-          },
-          {
-            "id": "cbc382af434b8aa5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Proxmox Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Proxmox Notes"
+              "title": "Linux"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "d32282e5f029ab90",
+    "id": "4f375491d9b6c3fb",
     "type": "split",
     "children": [
       {
-        "id": "c489af355cb29e9d",
+        "id": "65745c2ddb16c250",
         "type": "tabs",
         "children": [
           {
-            "id": "5d363e5f1583b1d8",
+            "id": "918e1642021c0512",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -63,7 +48,7 @@
             }
           },
           {
-            "id": "b3d847c1fffac5a2",
+            "id": "1227607421c61054",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -80,7 +65,7 @@
             }
           },
           {
-            "id": "dd4514ca117e5ada",
+            "id": "a22481746341731a",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -96,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "0bddabc106520798",
+    "id": "24b4a75a067582c8",
     "type": "split",
     "children": [
       {
-        "id": "bcba01e90d61a7fe",
+        "id": "96ff1b8fc3ba2857",
         "type": "tabs",
         "children": [
           {
-            "id": "e6ab7c5642a24b19",
+            "id": "69bc75c59c30a32b",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "React.md",
+                "file": "_recipes/The C programming language.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for React"
+              "title": "Backlinks for The C programming language"
             }
           },
           {
-            "id": "4b86bc56b0d4ba41",
+            "id": "40ddd1523eaf911b",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "React.md",
+                "file": "_recipes/The C programming language.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from React"
+              "title": "Outgoing links from The C programming language"
             }
           },
           {
-            "id": "576876bcf965e586",
+            "id": "a422bd7d1e167fcc",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -152,18 +137,18 @@
             }
           },
           {
-            "id": "044800bcb38a9fae",
+            "id": "22d0044645fc3cce",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "React.md",
+                "file": "_recipes/The C programming language.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of React"
+              "title": "Outline of The C programming language"
             }
           }
         ]
@@ -183,18 +168,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "cbc382af434b8aa5",
+  "active": "f7f0c2b3efcfabdf",
   "lastOpenFiles": [
-    "Pasted image 20250610113008.png",
-    "The C programming language.md",
-    "Proxmox Notes.md",
-    "Ruby.md",
-    "Swift.md",
-    "React.md",
-    "liquid.md",
-    "JavasScript.md",
-    "Linux.md",
-    "Bash.md",
-    "Python.md"
+    "assets/Pasted image 20250521121400.png",
+    "Pasted image 20250521121026.png",
+    "assets/linux/systemctl.status.png",
+    "assets/linux",
+    "_recipes/The C programming language.md"
   ]
 }
