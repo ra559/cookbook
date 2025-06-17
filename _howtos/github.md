@@ -3,6 +3,8 @@ layout: page
 title: Github 
 ---
 
+# {{page.title}}
+
 * **How to push an existing git repository to GitHub?**
 	* Assuming your ssh key and user is already setup.
 	* 1. create the GitHub repository

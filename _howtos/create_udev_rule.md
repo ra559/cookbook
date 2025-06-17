@@ -2,7 +2,7 @@
 title: Create a udev rule
 layout: page
 ---
-
+# {{page.title}}
 
 # How to create a udev rule for 8BitDo Ultimate C 2.4G Wireless Controller
 
