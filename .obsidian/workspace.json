@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f7f0c2b3efcfabdf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_recipes/Bash.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Bash"
-            }
-          },
-          {
             "id": "dbf83755e5065fdf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_howtos/Mount drives.md",
+                "file": "_recipes/Ruby.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mount drives"
+              "title": "Ruby"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "24b4a75a067582c8",
@@ -185,6 +171,7 @@
   },
   "active": "dbf83755e5065fdf",
   "lastOpenFiles": [
+    "_recipes/Ruby.md",
     "_recipes/Bash.md",
     "_howtos/Mount drives.md",
     "_recipes/JavasScript.md",
