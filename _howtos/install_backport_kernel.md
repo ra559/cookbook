@@ -1,4 +1,8 @@
-# Installing the Latest Linux Kernel on Debian 13 Using Backports
+---
+title:  Installing the Latest Linux Kernel on Debian 13 Using Backports
+layout: page
+---
+# {{page.title}}
 
 This guide explains how to install the **latest Linux kernel available from the official Debian 13 (`trixie`) Backports repository** on a fresh Debian 13 installation.
 
